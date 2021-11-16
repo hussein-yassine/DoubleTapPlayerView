@@ -1,9 +1,7 @@
-# This library is forked and built over [DoubleTapPlayerView][playerUrl]
-
 # DoubleTapPlayerView
 
 A simple library to include double tap behavior to ExoPlayer's PlayerView. 
-Created to handle fast forward/rewind behavior like Netflix.
+Created to handle fast forward/rewind behavior like Netflix built over [DoubleTapPlayerView][playerUrl]
 
 ![teamwork-flip](github/preview_gif.gif)
 
