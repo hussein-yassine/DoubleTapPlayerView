@@ -43,7 +43,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.hussein-yassine:DoubleTapPlayerView:1.0.8'
+    implementation 'com.github.hussein-yassine:DoubleTapPlayerView:1.1.0'
 }
 ```
 
