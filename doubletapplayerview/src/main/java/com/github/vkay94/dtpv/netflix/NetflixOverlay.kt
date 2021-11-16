@@ -251,8 +251,7 @@ class NetflixOverlay(context: Context, private val attrs: AttributeSet?) :
             }
             changeConstraints(shouldForward)
         }
-
-        Log.wtf("Netflix overlay", " shouldForward? $shouldForward")
+  
         // Netflix behavior: show overlay on MOTION_UP
         // But check whether the first double tap is in invalid area
         if (this.visibility != View.VISIBLE) {
@@ -266,7 +265,6 @@ class NetflixOverlay(context: Context, private val attrs: AttributeSet?) :
 
         when (shouldForward) {
             true -> {
-                Log.wtf("Netflix overlay when", " shouldForward? $shouldForward")
                 // First time tap or switched
                 if (!secondsView.isForward) {
                     changeConstraints(true)
@@ -284,7 +282,6 @@ class NetflixOverlay(context: Context, private val attrs: AttributeSet?) :
                 forwarding()
             }
             false -> {
-                Log.wtf("Netflix overlay when", " shouldForward? $shouldForward")
                 // First time tap or switched
                 if (secondsView.isForward) {
                     changeConstraints(false)
