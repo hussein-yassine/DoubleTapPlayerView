@@ -37,6 +37,7 @@ class NetflixOverlay(context: Context, private val attrs: AttributeSet?) :
     // Player behaviors
     private var playerView: DoubleTapPlayerView? = null
     private var player: Player? = null
+    private var fixedSeekingInterval = true
 
     init {
         LayoutInflater.from(context).inflate(R.layout.nf_overlay, this, true)
@@ -74,9 +75,7 @@ class NetflixOverlay(context: Context, private val attrs: AttributeSet?) :
             playerViewRef = a.getResourceId(R.styleable.NetflixOverlay_nf_playerView, -1)
 
             // Durations
-            animationDuration = a.getInt(
-                R.styleable.NetflixOverlay_nf_animationDuration, 650
-            ).toLong()
+            animationDuration = a.getInt(R.styleable.NetflixOverlay_nf_animationDuration, 650).toLong()
 
             seekSeconds = a.getInt(
                 R.styleable.NetflixOverlay_nf_seekSeconds, 10
@@ -86,6 +85,8 @@ class NetflixOverlay(context: Context, private val attrs: AttributeSet?) :
                 R.styleable.NetflixOverlay_nf_iconAnimationDuration, 750
             ).toLong()
 
+            // Seeking only according to the seekSeconds interval, if false ==> +10, +20, +30 ..
+            fixedSeekingInterval = a.getBoolean(R.styleable.NetflixOverlay_nf_fixed_seeking_interval, true)
 
             // Colors
             tapCircleColor = Color.TRANSPARENT
@@ -95,9 +96,9 @@ class NetflixOverlay(context: Context, private val attrs: AttributeSet?) :
 
         } else {
             // Set defaults
-
-            tapCircleColor = Color.TRANSPARENT//ContextCompat.getColor(context, R.color.dtpv_nf_tap_circle_color)
-            circleBackgroundColor = Color.TRANSPARENT//ContextCompat.getColor(context, R.color.dtpv_nf_background_circle_color)
+            fixedSeekingInterval = true
+            tapCircleColor = Color.TRANSPARENT
+            circleBackgroundColor = Color.TRANSPARENT
             animationDuration = 650
             iconAnimationDuration = 750
             seekSeconds = 10
@@ -247,7 +248,9 @@ class NetflixOverlay(context: Context, private val attrs: AttributeSet?) :
         if (shouldForward != null) {
             secondsView.apply {
                 isForward = shouldForward
-                seconds = 0
+                if (fixedSeekingInterval){
+                    seconds = 0
+                }
             }
             changeConstraints(shouldForward)
         }
