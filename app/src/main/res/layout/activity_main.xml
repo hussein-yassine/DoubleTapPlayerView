@@ -50,6 +50,7 @@
                     android:background="#77000000"
                     android:visibility="invisible"
                     app:nf_playerView="@id/previewPlayerView"
+                    app:nf_fixed_seeking_interval="false"
                     tools:visibility="visible" />
 
             </FrameLayout>

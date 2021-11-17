@@ -4,6 +4,7 @@
     <declare-styleable name="NetflixOverlay">
         <attr name="nf_playerView" format="reference" />
         <attr name="nf_seekSeconds" format="integer" />
+        <attr name="nf_fixed_seeking_interval" format="boolean" />
         <attr name="nf_animationDuration" format="integer" />
         <attr name="nf_iconAnimationDuration" format="integer" />
         <attr name="nf_arcSize" format="dimension" />
