@@ -13,6 +13,8 @@
         android:layout_height="50dp"
         app:r_arrowSize="10dp"
         app:r_color="#ffffff"
+        app:r_circle_color="#ffffff"
+        app:r_animationDuration="750"
         app:r_strokeWidth="3dp"
         app:r_textSize="15sp" />
 
@@ -22,6 +24,8 @@
         android:layout_height="50dp"
         app:f_arrowSize="10dp"
         app:f_color="#ffffff"
+        app:f_animationDuration="750"
+        app:f_circle_color="#ffffff"
         app:f_strokeWidth="3dp"
         app:f_textSize="15sp" />
 
